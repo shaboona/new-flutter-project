@@ -32,7 +32,24 @@ class _HomwLayoutState extends State<HomwLayout> {
       ),
       body: screens[currentIndex],
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          // try {
+          //   var name = await getName();
+          //   print(name);
+          //
+          //   throw ('error!');
+          // } catch (error) {
+          //   print('error${error.toString()}');
+          // }
+
+          getName().then((value) {
+            print(value);
+            print('Osama');
+            // throw ('error!');
+          }).catchError((error) {
+            print('error is ${error.toString()}');
+          });
+        },
         child: Icon(
           Icons.add,
         ),
@@ -67,5 +84,9 @@ class _HomwLayoutState extends State<HomwLayout> {
         ],
       ),
     );
+  }
+
+  Future<String> getName() async {
+    return 'Ahmed Ali';
   }
 }
